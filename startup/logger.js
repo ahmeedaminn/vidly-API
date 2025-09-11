@@ -20,7 +20,7 @@ export const logger = winston.createLogger({
       ),
     }),
     new winston.transports.MongoDB({
-      db: "mongodb://localhost/vidly",
+      db: process.env.DB_NAME,
       collection: "logs",
       level: "error",
     }),
