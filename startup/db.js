@@ -6,7 +6,9 @@ dotenv.config();
 export default function () {
   // Determine the environment
   const dbConnection =
-    process.env.NODE_ENV === "test" ? process.env.testDb : process.env.db;
+    process.env.NODE_ENV === "test"
+      ? process.env.DB_NAME_TEST
+      : process.env.DB_NAME;
 
   // Check the connection
   if (!dbConnection) {
