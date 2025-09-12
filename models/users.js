@@ -22,7 +22,11 @@ export const userSchema = new mongoose.Schema({
     minLength: 5,
     maxLength: 1024,
   },
-  isAdmin: Boolean,
+  isAdmin: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
 });
 
 userSchema.methods.generateAuthToken = function () {
