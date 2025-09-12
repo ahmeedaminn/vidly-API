@@ -31,7 +31,7 @@ export const moviesSchema = new mongoose.Schema({
 
 export const Movie = mongoose.model("Movie", moviesSchema);
 
-export const validateMovie = function (genre) {
+export const validateMovie = function (moive) {
   const scheme = Joi.object({
     title: Joi.string().min(1).required(),
     genreId: objectId(),
@@ -40,5 +40,5 @@ export const validateMovie = function (genre) {
     dailyRentalRate: Joi.number().min(0).required(),
   }).xor("genreId", "genreName");
 
-  return scheme.validate(genre); // return {err, value}
+  return scheme.validate(moive); // return {err, value}
 };
